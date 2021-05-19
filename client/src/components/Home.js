@@ -3,7 +3,8 @@ import {Link} from "react-router-dom"
 
 function Home() {
   return (
-    <div className="home">
+    <div className="wrapper">
+      <div className="home">
       <h1>8-1-Backend-Challange</h1>
       <p>
         A suite of backends created for the sole purpose of testing the
@@ -14,6 +15,7 @@ function Home() {
       <Link to="/tests"> <button>View The Tests</button></Link>
       <Link to="/writeup"><button>View The Write Up</button></Link>
       </section>
+      </div>
     </div>
   );
 } 

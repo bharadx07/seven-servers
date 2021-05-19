@@ -1,0 +1,1 @@
+export const NODE_SERVER_URL = "https://localhost://8080"
