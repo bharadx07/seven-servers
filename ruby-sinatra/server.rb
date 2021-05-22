@@ -1,1 +1,1 @@
-puts "Server Comming Soon"
+require 'sinatra'
