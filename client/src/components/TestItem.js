@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import axios from "axios"
-import { NODE_SERVER_URL, PYTHON_SERVER_URL } from "../constants/APIURLS";
+import { NODE_SERVER_URL, PYTHON_SERVER_URL, RUBY_SERVER_URL } from "../constants/APIURLS";
 
 function TestItem({ name }) {
   const [display, setDisplay] = useState("loading");
@@ -23,7 +23,19 @@ function TestItem({ name }) {
       // console.log("Node", getData)
       // console.log("Node", postData)
 
-      const {data: getData} = await axios.get(PYTHON_SERVER_URL)
+      // const {data: getData} = await axios.get(PYTHON_SERVER_URL)
+      // const {data: postData} = await axios.post(PYTHON_SERVER_URL, {
+      //   name: "Bharadwaj Duggaraju"
+      // }, {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   }
+      // })
+
+      // console.log("Python", getData)
+      // console.log("Python", postData)
+
+      const {data: getData} = await axios.get(RUBY_SERVER_URL)
       const {data: postData} = await axios.post(PYTHON_SERVER_URL, {
         name: "Bharadwaj Duggaraju"
       }, {
@@ -32,8 +44,8 @@ function TestItem({ name }) {
         }
       })
 
-      console.log("Python", getData)
-      console.log("Python", postData)
+      console.log("Ruby", getData)
+      console.log("Ruby", postData)
 
     }
 

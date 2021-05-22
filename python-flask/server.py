@@ -11,7 +11,7 @@ def homePage():
         return "Hello Unknown Get Requester. Success from the Python Server"
     elif(request.method == "POST"):
         NAME = request.json["name"]
-        send_string = f"Hello {NAME}. Your are a Post Requester. Success from the Javascript Server"
+        send_string = f"Hello {NAME}. Your are a Post Requester. Success from the Python Server"
         return send_string
     return '404'
 
