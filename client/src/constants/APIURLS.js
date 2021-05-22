@@ -1,1 +1,1 @@
-export const NODE_SERVER_URL = "https://localhost://8080"
+export const NODE_SERVER_URL = "http://localhost:8080/"

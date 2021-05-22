@@ -2,17 +2,8 @@ import React, { useState } from "react";
 import TestItem from "./TestItem";
 
 function Tests() {
-  const [display, setDisplay] = useState("trigger");
+  const [display, setDisplay] = useState("3");
 
-  if (display === "trigger") {
-    return (
-      <div className="wrapper">
-        <button className="startTests" onClick={() => setDisplay("3")}>
-          Start Tests
-        </button>
-      </div>
-    );
-  }
 
   if (display === "3") {
     setTimeout(() => setDisplay("2"), 1000);
@@ -54,7 +45,7 @@ function Tests() {
   return (
       <div className="tests">
         {languagesTests.map((lang) => (
-          <TestItem name={lang} />
+          <TestItem name={lang} key={languagesTests.indexOf(lang)} />
         ))}
       </div>
   );

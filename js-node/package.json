@@ -1,0 +1,16 @@
+{
+  "name": "js-node",
+  "version": "1.0.0",
+  "description": "Node Server For 8-1-Backend-Challange",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Bharadwaj Duggaraju",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}

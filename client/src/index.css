@@ -5,6 +5,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  background-color: lightcoral;
+}
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -72,6 +76,29 @@
     grid-gap: 3rem;
     justify-items: center;
     justify-content: center;
-    margin-top: 9rem;
+    margin-top: 3rem;
     margin-bottom: 3rem;
+
+}
+
+.card {
+  padding: 2rem 0.5rem;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.1);
+  margin: 0 2rem;
+}
+
+.card div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: .5rem 1rem;
+
+}
+
+
+section {
+  margin: 0 auto;
 }
