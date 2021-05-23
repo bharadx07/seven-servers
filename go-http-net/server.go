@@ -1,7 +1,16 @@
-package main;
+package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main()  {
-	fmt.println("Server Comming Soon")
+	http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Welcome to my website!")
+	})
+
+
+	http.ListenAndServe(":5050", nil)
 }
+
