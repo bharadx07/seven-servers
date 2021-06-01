@@ -9,7 +9,10 @@ import (
 
 func main()  {
 	http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
+		allowedHeaders := "Accept, Content-Type, Content-Length, Accept-Encoding, Authorization,X-CSRF-Token"
+
 		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Headers", allowedHeaders)
 
 		if r.Method == http.MethodGet {
 			io.WriteString(w, "Hello Unknown Get Requester. Success from the Go Server")
