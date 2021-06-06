@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import axios from "axios"
-import { GO_SERVER_URL, NODE_SERVER_URL, PHP_SERVER_URL, PYTHON_SERVER_URL, RUBY_SERVER_URL } from "../constants/APIURLS";
+import { CSHARP_SERVER_URL, GO_SERVER_URL, NODE_SERVER_URL, PHP_SERVER_URL, PYTHON_SERVER_URL, RUBY_SERVER_URL } from "../constants/APIURLS";
 
 function TestItem({ name }) {
   const [display, setDisplay] = useState("loading");
@@ -60,17 +60,29 @@ function TestItem({ name }) {
       // console.log("Go", postData)
 
 
-      const {data: getData} = await axios.get(PHP_SERVER_URL)
-      const {data: postData} = await axios.post(PHP_SERVER_URL, {
-        name: "Bharadwaj Duggaraju"
+      // const {data: getData} = await axios.get(PHP_SERVER_URL)
+      // const {data: postData} = await axios.post(PHP_SERVER_URL, {
+      //   name: "Bharadwaj Duggaraju"
+      // }, {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   }
+      // })
+
+      // console.log("PHP", getData)
+      // console.log("PHP", postData)
+
+      const {data: getData} = await axios.get(CSHARP_SERVER_URL)
+      const {data: postData} = await axios.post(CSHARP_SERVER_URL, {
+        data: "Bharadwaj Duggaraju"
       }, {
         headers: {
           "Content-Type": "application/json",
         }
       })
 
-      console.log("PHP", getData)
-      console.log("PHP", postData)
+      console.log("C#", getData.data)
+      console.log("C#", postData.data)
 
     }
 
