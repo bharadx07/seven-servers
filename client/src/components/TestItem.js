@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
 import axios from "axios"
-import { CSHARP_SERVER_URL, GO_SERVER_URL, NODE_SERVER_URL, PHP_SERVER_URL, PYTHON_SERVER_URL, RUBY_SERVER_URL } from "../constants/APIURLS";
+import { CSHARP_SERVER_URL, GO_SERVER_URL, JAVA_SERVER_URL, NODE_SERVER_URL, PHP_SERVER_URL, PYTHON_SERVER_URL, RUBY_SERVER_URL } from "../constants/APIURLS";
 
-function TestItem({ name }) {
+function TestItem({ name, finshedRequests, setFinishedRequests }) {
   const [display, setDisplay] = useState("loading");
   const [getReqStatic, setGetReqStatic] = useState(null)
   const [postReqStatic, setPostReqStatic] = useState(null)
+  const [timeTaken, setTimeTaken] = useState(performance.now())
 
   useEffect(() => {
     setTimeout(() => setDisplay("tests"), Math.random()*5000);
@@ -72,17 +73,28 @@ function TestItem({ name }) {
       // console.log("PHP", getData)
       // console.log("PHP", postData)
 
-      const {data: getData} = await axios.get(CSHARP_SERVER_URL)
-      const {data: postData} = await axios.post(CSHARP_SERVER_URL, {
-        data: "Bharadwaj Duggaraju"
-      }, {
+      // const {data: getData} = await axios.get(CSHARP_SERVER_URL)
+      // const {data: postData} = await axios.post(CSHARP_SERVER_URL, {
+      //   data: "Bharadwaj Duggaraju"
+      // }, {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   }
+      // })
+
+      // console.log("C#", getData.data)
+      // console.log("C#", postData.data)
+
+      const {data: getData} = await axios.get(JAVA_SERVER_URL)
+      const {data: postData} = await axios.post(JAVA_SERVER_URL, "Bharadwaj Duggaraju", {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain",
+          
         }
       })
 
-      console.log("C#", getData.data)
-      console.log("C#", postData.data)
+      console.log("Java", getData)
+      console.log("Java", postData)
 
     }
 
@@ -129,7 +141,7 @@ function TestItem({ name }) {
               Response: 'Hello Bharadwaj. Your are a Post Requester. Success
               from the {name} Server'
             </div>
-            <h3 style={{marginTop: "1rem"}}>Time Taken: {performance.now()}</h3>
+            <h3 style={{marginTop: "1rem"}}>Time Taken: {timeTaken}</h3>
             <h3 style={{marginTop: "1rem", color: "green"}}>Finished 1st.</h3>
           </>
         )}

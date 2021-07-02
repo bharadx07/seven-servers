@@ -17,6 +17,6 @@ app.post("/", (req,res) => {
     res.send(`Hello ${name}. Your are a Post Requester. Success from the Javascript Server`)
 })
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 4040
 
 app.listen(PORT, () => console.log(`Server Running on Port ${PORT}`)) 
