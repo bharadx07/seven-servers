@@ -3,7 +3,7 @@ import TestItem from "./TestItem";
 
 function Tests() {
   const [display, setDisplay] = useState("3");
-  const [finishedRequests, setFinishedRequests] = useState([])
+  const [finishedRequests, setFinishedRequests] = useState([""])
 
 
   if (display === "3") {
@@ -41,12 +41,13 @@ function Tests() {
     "Kotlin",
     "Python",
     "Ruby",
+    "PHP"
   ];
 
   return (
       <div className="tests">
         {languagesTests.map((lang) => (
-          <TestItem name={lang} key={languagesTests.indexOf(lang)} finishedRequests={finishedRequests} setFinishedRequests={setFinishedRequests} />
+          <TestItem name={lang} key={languagesTests.indexOf(lang)} reqs={finishedRequests} setReqs={setFinishedRequests} />
         ))}
       </div>
   );

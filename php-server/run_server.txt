@@ -1,1 +1,4 @@
 php -S localhost:8080 -t . server.php
+
+USE WSL Ubuntu Command Line
+Use proper port.
