@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="wrapper">
       <div className="home">
-      <h1>8-1-Backend-Challange</h1>
+      <h1>Seven Servers</h1>
       <p>
         A suite of backends created for the sole purpose of testing the
         performance, user-experience and development of creating backends in
