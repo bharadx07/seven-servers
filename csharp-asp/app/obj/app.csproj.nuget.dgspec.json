@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bhara\\Documents\\8-1-Backend-Challange\\csharp-asp\\app\\app.csproj": {}
+    "C:\\Users\\bhara\\Documents\\7-1-Backend-Challange\\csharp-asp\\app\\app.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bhara\\Documents\\8-1-Backend-Challange\\csharp-asp\\app\\app.csproj": {
+    "C:\\Users\\bhara\\Documents\\7-1-Backend-Challange\\csharp-asp\\app\\app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bhara\\Documents\\8-1-Backend-Challange\\csharp-asp\\app\\app.csproj",
+        "projectUniqueName": "C:\\Users\\bhara\\Documents\\7-1-Backend-Challange\\csharp-asp\\app\\app.csproj",
         "projectName": "app",
-        "projectPath": "C:\\Users\\bhara\\Documents\\8-1-Backend-Challange\\csharp-asp\\app\\app.csproj",
+        "projectPath": "C:\\Users\\bhara\\Documents\\7-1-Backend-Challange\\csharp-asp\\app\\app.csproj",
         "packagesPath": "C:\\Users\\bhara\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bhara\\Documents\\8-1-Backend-Challange\\csharp-asp\\app\\obj\\",
+        "outputPath": "C:\\Users\\bhara\\Documents\\7-1-Backend-Challange\\csharp-asp\\app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bhara\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -34,20 +34,19 @@ function Tests() {
   }
 
   const languagesTests = [
-    "C#",
-    "Go",
-    "Java",
-    "Javascript",
-    "Kotlin",
-    "Python",
-    "Ruby",
-    "PHP"
+    {name: "C#", lines: 39, ranking: 3},
+    {name:"Go", lines: 32, ranking: 3},
+    {name:"Java", lines: 63, ranking: 2},
+    {name:"Javascript", lines: 22, ranking: 5},
+    {name:"Python", lines: 18, ranking: 4},
+    {name:"Ruby", lines: 20, ranking: 5},
+    {name:"PHP", lines: 15, ranking: 3}
   ];
 
   return (
       <div className="tests">
-        {languagesTests.map((lang) => (
-          <TestItem name={lang} key={languagesTests.indexOf(lang)} reqs={finishedRequests} setReqs={setFinishedRequests} />
+        {languagesTests.map((lang, ind) => (
+          <TestItem lang={lang} key={ind} reqs={finishedRequests} setReqs={setFinishedRequests} />
         ))}
       </div>
   );

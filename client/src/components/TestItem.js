@@ -1,139 +1,47 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader-spinner";
-import axios from "axios";
-import {
-  CSHARP_SERVER_URL,
-  GO_SERVER_URL,
-  JAVA_SERVER_URL,
-  NODE_SERVER_URL,
-  PHP_SERVER_URL,
-  PYTHON_SERVER_URL,
-  RUBY_SERVER_URL,
-} from "../constants/APIURLS";
+import makeRequestFromLanguage from "../constants/request";
 
-function TestItem({ name, reqs, setReqs }) {
+function TestItem({ lang, reqs, setReqs }) {
   const [display, setDisplay] = useState("loading");
-  const [getReqStatic, setGetReqStatic] = useState(null);
-  const [postReqStatic, setPostReqStatic] = useState(null);
+  const [getReqStatic, setGetReqStatic] = useState("");
+  const [postReqStatic, setPostReqStatic] = useState("");
   const [timeTaken, setTimeTaken] = useState(0);
   const [localLength, setLocalLength] = useState(0)
 
   useEffect(() => {
-    setTimeout(() => setDisplay("tests"), Math.random() * 5000);
     const getData = async () => {
-      // const {data: getData} = await axios.get(NODE_SERVER_URL)
-      // const {data: postData} = await axios.post(NODE_SERVER_URL, {
-      //   name: "Bharadwaj Duggaraju"
-      // }, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   }
-      // })
-
-      // console.log("Node", getData)
-      // console.log("Node", postData)
-
-      // const {data: getData} = await axios.get(PYTHON_SERVER_URL)
-      // const {data: postData} = await axios.post(PYTHON_SERVER_URL, {
-      //   name: "Bharadwaj Duggaraju"
-      // }, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   }
-      // })
-
-      // console.log("Python", getData)
-      // console.log("Python", postData)
-
-      // const {data: getData} = await axios.get(RUBY_SERVER_URL)
-      // const {data: postData} = await axios.post(RUBY_SERVER_URL, {
-      //   name: "Bharadwaj Duggaraju"
-      // }, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   }
-      // })
-
-      // console.log("Ruby", getData)
-      // console.log("Ruby", postData)
-
-      // const {data: getData} = await axios.get(GO_SERVER_URL)
-      // const {data: postData} = await axios.post(GO_SERVER_URL, {
-      //   name: "Bharadwaj Duggaraju"
-      // }, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   }
-      // })
-
-      // console.log("Go", getData)
-      // console.log("Go", postData)
-
-      // const {data: getData} = await axios.get(PHP_SERVER_URL)
-      // const {data: postData} = await axios.post(PHP_SERVER_URL, {
-      //   name: "Bharadwaj Duggaraju"
-      // }, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   }
-      // })
-
-      // console.log("PHP", getData)
-      // console.log("PHP", postData)
-
-      // const {data: getData} = await axios.get(CSHARP_SERVER_URL)
-      // const {data: postData} = await axios.post(CSHARP_SERVER_URL, {
-      //   data: "Bharadwaj Duggaraju"
-      // }, {
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   }
-      // })
-
-      // console.log("C#", getData.data)
-      // console.log("C#", postData.data)
-
-      // const { data: getData } = await axios.get(JAVA_SERVER_URL);
-      // const { data: postData } = await axios.post(
-      //   JAVA_SERVER_URL,
-      //   "Bharadwaj Duggaraju",
-      //   {
-      //     headers: {
-      //       "Content-Type": "text/plain",
-      //     },
-      //   }
-      // );
-
-      // console.log("Java", getData);
-      // console.log("Java", postData);
-
-      
-      
+      const {get, post} = await makeRequestFromLanguage(lang.name)
+      setGetReqStatic(get);
+      setPostReqStatic(post)
     };
 
     const startTime = performance.now()
 
-    getData().then(() => {
+    getData().then(() => { 
       const tempReqs = reqs
       tempReqs.push("");
       setReqs(tempReqs)
       setLocalLength(reqs.length-1)
       setTimeTaken(performance.now()-startTime)
+      setDisplay("tests")
 
     });
+    // eslint-disable-next-line 
   }, [setReqs, setTimeTaken]);
+
+  const fillArray = new Array(lang.ranking).fill(0);
+  const nonFillArray = new Array(5-lang.ranking).fill(0)
 
   return (
     <div className="card">
-      <h1>{name}</h1>
+      <h1>{lang.name}</h1>
       <div>
-        <div>Lines Of Code: 1000</div>
+        <div>Lines Of Code: {lang.lines}</div>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          Developer Rating: <i className="far fa-star"></i>
-          <i className="far fa-star"></i>
-          <i className="far fa-star"></i>
-          <i className="far fa-star"></i>
-          <i className="far fa-star"></i>
+          Dev Rating: <br />
+          {fillArray.map((_, i) => <i key={i} className="fas fa-star" style={{margin: "0 .1rem"}}></i>)}
+          {nonFillArray.map((_, i) => <i key={i} className="far fa-star" style={{margin: "0 .1rem"}}></i>)}  
         </div>
       </div>
       <section>
@@ -155,13 +63,11 @@ function TestItem({ name, reqs, setReqs }) {
           <>
             <h3 style={{ margin: "1rem 0" }}>Test 1: Simple Get Request</h3>
             <div>
-              Response: 'Hello Unknown Get Requester. Success from the {name}{" "}
-              Server'
+              {getReqStatic}
             </div>
             <h3 style={{ margin: "1rem 0" }}>Test 2: Simple Post Request</h3>
             <div>
-              Response: 'Hello Bharadwaj. Your are a Post Requester. Success
-              from the {name} Server'
+              {postReqStatic}
             </div>
             <h3 style={{ marginTop: "1rem" }}>Time Taken: {timeTaken}</h3>
             <h3 style={{ marginTop: "1rem", color: "green" }}>
