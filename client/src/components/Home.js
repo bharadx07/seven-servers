@@ -16,9 +16,9 @@ function Home() {
             {" "}
             <button>View The Tests</button>
           </Link>
-          <Link to="/writeup">
+          <a href="https://github.com/bharadwajduggaraju/seven-servers/blob/master/README.md" target="_blank" rel="noreferrer">
             <button>View The Write Up</button>
-          </Link>
+          </a>
         </section>
       </div>
     </div>
