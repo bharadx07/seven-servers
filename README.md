@@ -15,5 +15,5 @@
 
 # Results.
 ## The Best Languages
-## The Moderatly Good Languages
-## The Bad Languages
+## The Good Languages
+## The Okay Languages
